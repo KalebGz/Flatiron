@@ -1,0 +1,27 @@
+{
+  "images": [
+    {
+      "id": 1,
+      "title": "Woofing those bugs away",
+      "likes": 4,
+      "image": "./assets/coder-dog.png"
+    }
+  ],
+  "comments": [
+    {
+      "id": 2,
+      "imageId": 1,
+      "content": "He's got a nose for bugs!"
+    },
+    {
+      "id": 3,
+      "imageId": 1,
+      "content": "Woof!"
+    },
+    {
+      "imageId": 1,
+      "content": "good boy",
+      "id": 4
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+<div class="box welcome">
+<h1>Create a New Workout Routine</h1>
+</div>
+
+<div class="box hmdetails">
+
+    <% if flash[:message] %>
+    <div style="text-align: center; color: #E93F33; font-family: 'Montserrat Bold'">
+        <%flash[:message].each do |message| %>
+        <%=message%> <br/> 
+        <%end%>
+    </div> 
+    <%end%> 
+
+<%=form_for @workout, url: '/workouts', method: :post do |f| %>
+
+    <table>
+    <tr><td>
+
+    <div class="nwtrcontainer"> 
+        <div class="nwtrbox-cell box1">
+        <%=f.label :name %> <br/>
+        <%=f.text_field :name, placeholder: "Workout Name" %>
+        </div>
+        <div class="nwtrbox-cell box2">
+        <%=f.label :description %> <br/>
+        <%=f.text_field :description, size: 75, placeholder: "Workout Description" %>
+        </div>
+    </div>
+
+    </td></tr><tr><td>
+    <div class="nwtrexercises"> 
+    Configure the exercises in your workout <br/><br/>
+
+    <%=f.fields_for :workoutexercises, @workout.workoutexercises.build do |e| %>
+        <%=e.collection_select :exercise_id, @exercises, :id, :name, {include_blank: 'Select Exercise'}%> 
+        Reps: <%=e.number_field :reps , placeholder: "Optional" %>, 
+        Sets: <%=e.number_field :sets , placeholder: "Optional" %>, 
+        Duration: <%=e.number_field :duration, placeholder: "Total Time in Minutes"%> <br/>
+    <%end%> 
+
+    <%=f.fields_for :workoutexercises, @workout.workoutexercises.build do |e| %>
+        <%=e.collection_select :exercise_id, @exercises, :id, :name, {include_blank: 'Select Exercise'}%> 
+        Reps: <%=e.number_field :reps , placeholder: "Optional" %>, 
+        Sets: <%=e.number_field :sets , placeholder: "Optional" %>, 
+        Duration: <%=e.number_field :duration, placeholder: "Total Time in Minutes"%> <br/>
+    <%end%> 
+
+    <%=f.fields_for :workoutexercises, @workout.workoutexercises.build do |e| %>
+        <%=e.collection_select :exercise_id, @exercises, :id, :name, {include_blank: 'Select Exercise'}%> 
+        Reps: <%=e.number_field :reps , placeholder: "Optional" %>, 
+        Sets: <%=e.number_field :sets , placeholder: "Optional" %>, 
+        Duration: <%=e.number_field :duration, placeholder: "Total Time in Minutes"%> <br/>
+    <%end%> 
+
+    <%=f.fields_for :workoutexercises, @workout.workoutexercises.build do |e| %>
+        <%=e.collection_select :exercise_id, @exercises, :id, :name, {include_blank: 'Select Exercise'}%> 
+        Reps: <%=e.number_field :reps , placeholder: "Optional" %>, 
+        Sets: <%=e.number_field :sets , placeholder: "Optional" %>, 
+        Duration: <%=e.number_field :duration, placeholder: "Total Time in Minutes"%> <br/>
+    <%end%> 
+
+    <%=f.fields_for :workoutexercises, @workout.workoutexercises.build do |e| %>
+        <%=e.collection_select :exercise_id, @exercises, :id, :name, {include_blank: 'Select Exercise'}%> 
+        Reps: <%=e.number_field :reps , placeholder: "Optional" %>, 
+        Sets: <%=e.number_field :sets , placeholder: "Optional" %>, 
+        Duration: <%=e.number_field :duration, placeholder: "Total Time in Minutes"%> <br/>
+    <%end%> 
+    <%=f.fields_for :workoutexercises, @workout.workoutexercises.build do |e| %>
+        <%=e.collection_select :exercise_id, @exercises, :id, :name, {include_blank: 'Select Exercise'}%> 
+        Reps: <%=e.number_field :reps , placeholder: "Optional" %>, 
+        Sets: <%=e.number_field :sets , placeholder: "Optional" %>, 
+        Duration: <%=e.number_field :duration, placeholder: "Total Time in Minutes"%> <br/>
+    <%end%> 
+    <br/> <br/>
+    <%=f.submit "CREATE", class: 'button' %> 
+    </div>
+    </td>
+    </tr>
+    </table>
+
+<%end%>
+</div>

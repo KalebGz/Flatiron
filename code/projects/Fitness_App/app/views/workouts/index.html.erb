@@ -1,0 +1,48 @@
+
+
+
+<div class="hmsplit left"> 
+
+<div class="box welcome">
+<h1>Manage Your Workouts</h1>
+</div>
+<div class="box hmdetails">
+
+<h2>Workouts you've created</h2>
+
+<ul>
+<%@priv_workouts.each do |workout|%>
+    <li> 
+    <span class="bold"><%=workout.name%> </span>
+    <span style="float: right"> 
+     <%= link_to  "EDIT", "/workoutexercises/#{workout.id}", class: "link edit" %>
+    <%= link_to "DELETE", delete_workout_path(id: workout.id), class: "link delete" %> <br/>
+    </span>
+    <br/><%= workout.list_exercises%> 
+    <br/><%= workout.trim_description%>  
+    </li>
+<%end%> 
+</ul> 
+<%if @priv_workouts == [] %>
+<div class="shaded">No workouts to display! </div>
+<%end%>
+</div>
+</div>
+
+
+<div class="hmsplit right"> 
+
+<div class="box hmdetails">
+<h2>Workouts Database</h2>
+
+<ul>
+<%@pub_workouts.each do |workout|%> 
+    <li><span class="bold"><%=workout.name%> </span><br/>
+    <%= workout.list_exercises%> 
+    <br/><%= workout.trim_description%>  
+    </li>
+<%end%>
+<ul> 
+</div>
+
+</div>

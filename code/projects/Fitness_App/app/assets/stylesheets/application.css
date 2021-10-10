@@ -1,0 +1,361 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ /* defining fonts */
+
+ @font-face {  
+   font-family: 'Montserrat Bold';  
+   src: url('Montserrat-Bold.ttf');
+  }
+
+  @font-face {  
+    font-family: 'Montserrat Medium';  
+    src: url('Montserrat-Medium.ttf');
+   }
+
+@font-face {  
+  font-family: 'Montserrat Regular';  
+  src: url('Montserrat-Regular.ttf');
+  }
+
+
+ /* styling for all text */
+
+body {
+    background-color: #F2F0EB; 
+    font-family: "Montserrat Regular"; 
+    margin: 0;
+}
+
+h1 {
+  line-height: 0.2em;
+  padding: 2px;
+}
+
+.bold {
+  font-family: 'Montserrat Bold';  
+  color:  #E93F33; 
+}
+
+.shaded {
+  text-align: center; 
+  color: #BCBC5C; 
+}
+
+/* styling for page 2 column split */
+
+.hmsplit { 
+  height: 84%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 70px;
+  overflow-x: hidden;
+  padding-bottom: 5px; 
+}
+
+.left {
+  left: 0;
+  overflow: scroll; 
+}
+
+.right {
+  right: 0;
+  overflow: scroll; 
+}
+
+ /* styling for floating boxes */
+
+.box {
+  margin: 30px; 
+  border-radius: 7px; 
+  padding: 20px; 
+} 
+
+.login { 
+  margin-top: 10%; 
+  margin-left: 30%; 
+  margin-right: 30%; 
+  background-color: #4155A2; 
+  text-align: center; 
+}
+
+.login h1 { 
+  text-align: center;
+  color: #F0E1BB; 
+}
+
+ /* styling for welcome box */
+
+.welcome{
+  background-color: #4155A2; 
+}
+
+.welcome h1 {
+  text-align: center;
+  color:  #F0E1BB; 
+}
+
+ /* styling for details boxes */
+
+.hmdetails{
+  background-color: #F0E1BB; 
+}
+
+.hmdetails h2{
+  line-height: 0.1em;
+  padding: 2px;
+  text-align: center;
+  color: #4155A2; 
+  font-family: 'Montserrat Medium'; 
+}
+
+ /* styling for link buttons */
+
+.link  {
+  width: 40px;
+  background: #4E9CAF;
+  padding: 0.5px;
+  padding-left: 8px;
+  padding-right: 8px; 
+  text-align: center;
+  color: white;
+  text-decoration: none; 
+  border-radius: 3px; 
+}
+
+.linkactivated {
+  width: 40px;
+  background: #706E69;
+  padding: 0.5px;
+  padding-left: 8px;
+  padding-right: 8px; 
+  text-align: center;
+  color: white;
+  text-decoration: none; 
+  border-radius: 3px; 
+}
+
+.linkactivated:hover{
+  background: #706E69;
+}
+
+.link:hover {
+  background: #E93F33;
+  color: white;
+}
+
+.button {
+  background: #4E9CAF;
+  color: white;
+  display: inline-block; 
+  border: none; 
+  border-radius: 3px; 
+  font-family: 'Montserrat Regular';
+  font-size: 16px;  
+  height: 22px; 
+  padding-left: 8px;
+  padding-right: 8px; 
+}
+.button:hover {
+  background: #E93F33;
+  color: white;
+}
+
+ /* styling for logbook stats */
+
+.stat {
+  text-align: center; 
+  padding-bottom: 20px; 
+}
+
+.statright {
+  width: 50%; 
+  float: right;
+}
+
+.statleft{
+  width: 50%; 
+  float: left; 
+}
+
+
+
+
+ /* styling for login page links */
+
+.linksignup {
+  color: #F0E1BB; 
+  text-decoration: none; 
+}
+.linksignup:hover {
+  color:  #E93F33; 
+}
+
+.linksignup:after {
+  content: '';
+  display: block;
+  margin: auto; 
+  width: 0;
+  height: 3px;
+  background: #E93F33;
+  transition: width .3s;
+}
+
+.linksignup:hover:after {
+  width: 100px;
+}
+
+
+.name { 
+  color: #F0E1BB; 
+  text-decoration: none; 
+}
+
+.name:hover {
+  color:  #E93F33; 
+}
+
+
+ /* styling for signup page links */
+
+.linklogin {
+  color: #F0E1BB; 
+  text-decoration: none; 
+}
+.linklogin:hover {
+  color:  #E93F33; 
+}
+
+.linklogin:after {
+  content: '';
+  display: block;
+  margin: auto; 
+  width: 0;
+  height: 3px;
+  background: #E93F33;
+  transition: width .3s;
+}
+
+.linklogin:hover:after {
+  width: 190px;
+}
+
+ /* styling for activate page  */
+
+.actnextlink{
+  display: block; 
+  font-family: 'Montserrat Bold'; 
+}
+
+.actnextlink a{
+  text-decoration: none; 
+  color: #4155A2; 
+  font-size: 20px;  
+}
+
+.actnextlink a:hover{
+  color: #E93F33; 
+}
+
+ /* styling for new trainings, name and desc  */
+
+.nwtrcontainter {
+  display: table-row; 
+}
+.nwtrbox-cell {
+    display: table-cell;
+    width: 200px; 
+    padding: 10px;  
+}
+
+.nwtrexercises {
+  width: 800px; 
+  padding: 10px;  
+}
+
+ /* styling for new trainings, exercises  */
+
+.nwtrexcontainer {
+  padding: 14px;
+    display: inline-grid;
+    grid-template-columns: 200px 200px 200px 200px;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+  }
+
+/* styling for top navigation bar  */
+.topnav {
+    margin: auto; 
+    overflow: hidden; 
+    padding-top: 10px; 
+    padding-bottom: 5px; 
+    display: flex; 
+    justify-content: center;
+    height: 10%;
+  } 
+
+.topnav a { 
+  float: left; 
+  color: #706E69; 
+  font-family: 'Montserrat Bold'; 
+  padding: 14px 14px;
+  text-decoration: none;
+  font-size: 20px;
+} 
+
+.topnav a::after { 
+  content: '';
+  display: block;
+  margin: auto; 
+  width: 0;
+  height: 3px;
+  background: #E93F33;
+  transition: width .3s;
+}
+
+.topnav a:hover {
+  color: #E93F33;
+}
+
+.topnav a:hover:after {
+  width: 100%;
+} 
+
+.topnav a.active {
+  color: #4155A2;
+}
+
+ /* styling for footer */
+
+.foot {
+  position: fixed; 
+  display: block; 
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 5%; 
+  background-color:  #4155A2;
+  text-align: center;
+  font-family: 'Montserrat Bold';
+  font-size: 30px;
+  color: #F0E1BB; 
+} 
+
+
+table {
+  margin: auto; 
+}

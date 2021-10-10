@@ -1,0 +1,118 @@
+<div class="hmsplit left">
+
+  <div class="box welcome">
+  <h1> Welcome, <%= link_to @user.name, '/users/details', class: 'name'%>!</h1> 
+  </div>
+  
+
+
+  <div class="box hmdetails">
+  <h2>Active Sessions</h2>
+  <%if @user.active_seshes%>
+  <ul> 
+    <%@user.active_seshes.each do |sesh| %>
+      <li> 
+      <span class="bold"> <%=sesh.time.strftime("%B %d %Y at %H:%M")%></span>
+      <span style="float: right"> 
+      <% if sesh.sessionworkouts.select{|sesh_wkt| !sesh_wkt.activated}.length == 0 %>
+        <%=link_to "ACTIVATE", activate_sesh_path(sesh), class: "linkactivated"  %> 
+      <%else%>
+        <%=link_to "ACTIVATE", activate_sesh_path(sesh), class: "link activate"  %> 
+      <%end%>
+      <%=link_to "EDIT", edit_sesh_path(sesh), class: "link edit"  %> 
+      <%=link_to "DELETE", delete_sesh_home_path(sesh), class: "link delete"  %> 
+      </span> 
+      <br/>At: <span style="color: #2E6137; font-family: 'Montserrat Bold'">
+        <%if sesh.gym %><%=sesh.gym.name%><%else%>Unassigned<%end%></span>
+      <br/>Goal: <%=sesh.trim_goals%>
+      <br/>Workouts: <%=sesh.workouts_list%> 
+      </li>
+    <%end%> 
+  </ul> 
+  <%else%> 
+  <div class="shaded">No Active Sessions 
+  </div>
+  <%end%> 
+  </div>
+
+
+  <div class="box hmdetails">
+  <h2>Upcoming Sessions</h2> 
+  <% if @user.future_seshes %>
+  <ul> 
+    <%@user.future_seshes.each do |sesh| %>
+      <li> 
+      <span class="bold"> <%=sesh.time.strftime("%B %d %Y at %H:%M")%></span>
+      <span style="float: right"> 
+      <%=link_to "EDIT", edit_sesh_path(sesh), class: "link edit"  %> 
+      <%=link_to "DELETE", delete_sesh_home_path(sesh), class: "link delete"  %> 
+      </span> 
+     <br/><span style="color: #2E6137; font-family: 'Montserrat Bold'">
+        <%if sesh.gym %><%=sesh.gym.name%><%else%>Unassigned<%end%></span>      <br/>Goal: <%=sesh.trim_goals%>
+      <br/>Workouts: <%=sesh.workouts_list%> 
+      </li>
+    <%end%>
+  </ul> 
+  <%else%>
+  <div class="shaded">No future sessions to display! </div>
+  <%end%>
+  </div>
+
+  <div class="box hmdetails">
+  <h2>Keep Pushing on!</h2>
+  </div>
+</div>
+
+
+<div class="hmsplit right">
+
+  <div class="box hmdetails">
+  <h2> Your Gyms </h2>
+  <ul> 
+    <%@user.gyms_sort.each do |gym| %> 
+      <li> <span style="color: #2E6137; font-family: 'Montserrat Bold'"><%=gym.name%></span> at <%=gym.address%>
+      <span style="float: right"> 
+      <%=link_to "EDIT", edit_gym_path(id: gym.id), class: "link edit" %> 
+      <%=link_to "DELETE", delete_gym_path(id: gym.id), class: "link delete" %> 
+      </span> <br/>
+      Equipment: <span style="color: #D9982C"><%=gym.list_of_equipment%></span> 
+
+      </li> 
+    <%end%>
+  </ul> 
+  <br/>
+  </div>
+
+<div class="box hmdetails">
+
+<h2>Register New Gym</h2>
+    <% if flash[:message] %>
+    <div style="text-align: center; color: #E93F33; font-family: 'Montserrat Bold'">
+        <%flash[:message].each do |message| %>
+        <%=message%> <br/> 
+        <%end%>
+    </div> 
+    <%end%> 
+
+    <%=form_for @gym, url: '/gyms', method: :post do |f| %>
+      <table width="100%"; padding="20px">
+      <tr>
+      <td style="text-align:right"> <%=f.label :name%> </td>
+      <td> <%=f.text_field :name%> </td> 
+      </tr> 
+      <tr>
+      <td style="text-align:right"> <%=f.label :address%> </td> 
+      <td> <%=f.text_field :address%> </td> 
+      </tr>
+      <tr> 
+      <td style="text-align:right"><%=f.label "Equipment"%> </td> 
+      <td> <%=f.text_field :list_of_equipment%> </td> 
+      </tr>
+      <tr><td> </td> <td> <%=f.submit "CREATE", class: 'button' %> </td> </tr>
+      </table> 
+    <%end%> 
+
+</div>
+
+
+</div>

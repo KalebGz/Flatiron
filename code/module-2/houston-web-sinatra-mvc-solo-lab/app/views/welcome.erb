@@ -1,0 +1,6 @@
+<h1> WELCOME to the APP </h1>
+
+<% @puppies.each{ |puppy|%>
+    <%# <%= link_to puppy.name, puppy% %>
+    <a href= <%="puppies/#{puppy.id}"%>> <%= puppy.name%> </a> <br>
+<% } %>

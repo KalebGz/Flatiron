@@ -1,0 +1,19 @@
+<div class="hmsplit left">
+<div class="box welcome">
+<h1>Workout: <%=@workout.name%></h1>
+</div>
+
+<div class="box hmdetails">
+<ul>
+<%@workoutexercises.each do |workout_e|%>
+    <li> <%=workout_e.exercise.name%> <%= link_to "(edit)", edit_exercise_path(id: workout_e.id) %> <br/> 
+    Reps: <%= workout_e.reps%> 
+    <br>
+    Sets: <%= workout_e.sets%> 
+    <br>
+    Duration: <%= workout_e.duration%> 
+    </li>
+<%end%>
+<ul> 
+</div>
+</div>

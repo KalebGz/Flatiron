@@ -1,0 +1,30 @@
+
+
+<div class="box login">
+
+<h1> LOG IN</h1>
+
+<% if flash[:message] %>
+    <p style="color: #BCBC5C; font-family: 'Montserrat Medium';"><%=flash[:message] %></p> 
+<%end%> 
+
+<br/>
+
+<%=form_for @user, url: '/login', method: :post do |f| %>
+
+    <span style="color: #F0E1BB"> <%=f.label :name %> </span> <br/>
+    <%=f.text_field :name %> <br/><br/>
+
+    <span style="color: #F0E1BB"><%=f.label :password %> </span> <br/>
+    <%=f.password_field :password %> 
+    <br/><br/>
+
+    <%=f.submit "Log In" %> 
+
+<%end%>
+
+<br/><br/>
+
+<%= link_to 'OR SIGN UP', '/signup', class: 'linksignup' %> 
+
+</div>

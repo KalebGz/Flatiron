@@ -1,0 +1,5 @@
+Appointments:
+<% @patient.appointments.each { |appt|%>
+    <%= appt.datetime%>
+    <%= link_to appt.doctor.name, appt.doctor%>
+<%}%>

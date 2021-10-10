@@ -1,0 +1,1 @@
+Recipe.find_or_create_by(name: 'fruit salad', ingredients: 'mango apple berries', cook_time: "30 minutes")

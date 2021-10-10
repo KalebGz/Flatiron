@@ -1,0 +1,43 @@
+
+<div class="box welcome">
+<h1>Schedule a New Session</h1>
+</div>
+
+<div class="box hmdetails">
+    <% if flash[:message] %>
+    <div style="text-align: center; color: #E93F33; font-family: 'Montserrat Bold'">
+        <%flash[:message].each do |message| %>
+        <%=message%> <br/> 
+        <%end%>
+    </div> 
+    <%end%> 
+
+<%=form_for @sesh, url: '/seshes', method: :post do |f| %>
+    <table width=50%>
+    <tr>
+    <td style="text-align:right"> <%=f.label "Select time:" %></td>
+    <td><%=f.datetime_select :time, minute_step: 10 %> </td>
+    </tr>
+    <tr>
+    <td style="text-align:right"> <%=f.label "Set your workout goal:" %></td>
+    <td><%=f.text_field :goals , size: 50 %> </td>
+    </tr>
+    <tr>
+    <td style="text-align:right"> <%=f.label "Select your gym:" %></td>
+    <td> <%=f.collection_select :gym_id , @gyms, :id, :name %> </td>
+    </tr>
+    <tr> <td></td><td>
+    <%=f.label "Select workout routines to cover in this session:"%> <br/>
+    <%=f.collection_check_boxes :workout_ids, @workouts, :id, :name do |e| %>
+        <div class="exercisechecks"> 
+            <%= e.check_box %> <%= e.label { e.text } %> <br/>
+        </div> 
+    <%end%>
+    </td>
+    </tr><tr><td></td><td>
+    <%=f.submit "CREATE", class: 'button' %> </td> 
+    </tr>
+        </table> 
+<%end%>
+
+</div>

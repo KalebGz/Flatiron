@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Workout</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+  <div class="topnav"> 
+
+    <%if @site == "home"%>  <a href="/home" class="active" >HOME</a> 
+    <%else%> <a href="/home">HOME</a>
+    <%end%>
+
+   <%if @site == "new_sesh"%>  <a href="/seshes/new" class="active" >NEW SESSION</a> 
+    <%else%> <a href="/seshes/new">NEW SESSION</a> 
+    <%end%>
+
+    <%if @site == "new_workout"%>  <a href="/workouts/new" class="active" >NEW WORKOUT</a> 
+    <%else%> <a href="/workouts/new">NEW WORKOUT</a>
+    <%end%>
+
+    <%if @site == "manage_workouts"%>  <a href='/workouts' class="active">WORKOUTS</a> 
+    <%else%> <a href='/workouts'>WORKOUTS </a>
+    <%end%>
+
+    <%if @site == "manage_exercises"%>   <a href='/exercises' class="active" >EXERCISES</a>
+    <%else%>  <a href='/exercises'>EXERCISES</a> <%end%>
+
+    <%if @site == "logbook"%>   <a href='/logbook' class="active" >LOGBOOK</a>
+    <%else%>  <a href='/logbook'>LOGBOOK</a> <%end%> 
+
+    <a href="/logout">SIGN OUT</a> 
+
+  </div> 
+
+    <%= yield %>
+
+
+  <div class="foot">
+    <%unless @foot =="nofoot"%> <span style="vertical-align: middle;"> KEEP UP THE GOOD WORK! </span><%end%> 
+  </div>
+  </body>
+</html>
+
